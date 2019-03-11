@@ -16,7 +16,7 @@ export default class App extends Component {
 
   componentDidMount() {
     // eslint-disable-next-line
-    axios.get('https://api.giphy.com/v1/gifs/trending?api_key=0WNmnv3KmmYaU0L1RrDIDjdbujRrsMNY&limit=16')
+    axios.get('https://api.giphy.com/v1/gifs/trending?api_key=0WNmnv3KmmYaU0L1RrDIDjdbujRrsMNY&limit=15')
       .then(response => {
         this.setState({
           gifs: response.data.data
