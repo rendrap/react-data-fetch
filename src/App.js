@@ -15,8 +15,12 @@ export default class App extends Component {
 
 
   componentDidMount() {
+
+  }
+
+  performSearch = (query) => {
     // eslint-disable-next-line
-    axios.get('https://api.giphy.com/v1/gifs/trending?api_key=0WNmnv3KmmYaU0L1RrDIDjdbujRrsMNY&limit=15')
+    axios.get(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=0WNmnv3KmmYaU0L1RrDIDjdbujRrsMNY&limit=24`)
       .then(response => {
         this.setState({
           gifs: response.data.data
@@ -34,7 +38,7 @@ export default class App extends Component {
         <div className='main-header'>
           <div className='inner'>
             <h1 className='main-title'>GifSearch</h1>
-            <SearchForm />
+            <SearchForm onSearch={this.performSearch} />
           </div>
         </div>
         <div className='main-content'>
